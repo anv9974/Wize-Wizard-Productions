@@ -11,8 +11,14 @@ public class Troop : Agent
     public float fleeDistance = 5f;
     public float attackDistance = 0.5f;
 
-    private Transform currentTower;
+    private GameObject currentTower;
+    private Transform currentTowerLoc;
     private Animator anim;
+
+    [Header("Misc")]
+    public int HP;
+    public int DamageDealt;
+    public float Speed;
 
     void Start()
     {
@@ -34,9 +40,10 @@ public class Troop : Agent
     {
         Vector3 totalForce = Vector3.zero;
 
+        currentTowerLoc = GetClosestTower().transform;
         currentTower = GetClosestTower();
 
-        if (currentTower != null && Vector3.Distance(transform.position, currentTower.position) <= attackDistance + 0.1f)
+        if (currentTowerLoc != null && Vector3.Distance(transform.position, currentTowerLoc.position) <= attackDistance + 0.1f)
         {
             //Attack here
             base.Stop();
@@ -48,14 +55,14 @@ public class Troop : Agent
             totalForce += (Vector3)Flee(currentTower.position) * fleeWeight;
         }
         */
-        else if (currentTower != null && Vector3.Distance(transform.position, currentTower.position) - attackDistance <= arriveDistance)
+        else if (currentTowerLoc != null && Vector3.Distance(transform.position, currentTowerLoc.position) - attackDistance <= arriveDistance)
         {
-            Vector3 stopPoint = currentTower.position - (currentTower.position - transform.position).normalized * attackDistance;
+            Vector3 stopPoint = currentTowerLoc.position - (currentTowerLoc.position - transform.position).normalized * attackDistance;
             totalForce += (Vector3)Arrive(stopPoint, arriveDistance) * arriveWeight;
         }
-        else if (currentTower != null)
+        else if (currentTowerLoc != null)
         {
-            totalForce += (Vector3)Seek(currentTower.position) * seekWeight;
+            totalForce += (Vector3)Seek(currentTowerLoc.position) * seekWeight;
         }
 
         return totalForce;
@@ -63,10 +70,10 @@ public class Troop : Agent
 
 
 //Returns the closest tower to the troop.
-    Transform GetClosestTower()
+    GameObject GetClosestTower()
     {
         GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
-        Transform closest = null;
+        GameObject closest = null;
         float minDistance = float.MaxValue;
         //sets mindist to really far away, then checks each tower to see if its closer.
 
@@ -76,9 +83,40 @@ public class Troop : Agent
             if (dist < minDistance)
             {
                 minDistance = dist;
-                closest = t.transform;
+                closest = t;
             }
         }
         return closest;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Used tags to check what kinda troop it is
+    void DealDamage()
+    {
+        Tower tower = currentTower.GetComponent<Tower>();
+        switch (gameObject.tag)
+        {
+            case "Generic":
+                tower.TakeDamage(DamageDealt);
+                Debug.Log("Meow");
+                break;
+            case "Brute":
+                tower.TakeDamage(DamageDealt);
+                break;
+            case "Bomber":
+                tower.TakeDamage(DamageDealt);
+                break;
+            case "Archer":
+                tower.TakeDamage(DamageDealt);
+                break;
+        }
     }
 }
