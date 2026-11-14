@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c6ac3c0e3bf1e449a9fc5bd88417532
+guid: 884888fc12a0a4c4185cf2f1d43276e2
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tempbuttons_0
+      name: IMG_4141_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +126,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ad99ee960a7dc8f40bdb44c60ded27d8
-      internalID: 1973463970
+      spriteID: 1e9e14b0436113630800000000000000
+      internalID: 3904926764689910241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_1
+      name: IMG_4141_1
       rect:
         serializedVersion: 2
         x: 75
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67c854e8f247a4742a54a777f753e371
-      internalID: 1941309004
+      spriteID: 42bb1f5e675c4214182341f21c33e912
+      internalID: 2055647806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_2
+      name: IMG_4141_2
       rect:
         serializedVersion: 2
         x: 150
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 644f225b0729b964e82601601faad66e
-      internalID: 582419641
+      spriteID: 561ed13957c88424f9fcd74f48f52152
+      internalID: 1416610971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_3
+      name: IMG_4141_3
       rect:
         serializedVersion: 2
         x: 225
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceb41add3f8360d418f0786d9c84c4cb
-      internalID: -639604717
+      spriteID: 269c3601a2bc4a6419c81466718418c0
+      internalID: 2026575514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_4
+      name: IMG_4141_4
       rect:
         serializedVersion: 2
         x: 300
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8f7d4dda30c7684196a30493cbb2178
-      internalID: -1830203158
+      spriteID: 0088a343414c4c04c8ae0baf6ec06316
+      internalID: 1178682126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_5
+      name: IMG_4141_5
       rect:
         serializedVersion: 2
         x: 375
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04d29e04c88d62f44ad55b23cdac273b
-      internalID: 1371804484
+      spriteID: fff2a940c02a47545ad447a0b5574be7
+      internalID: -153945339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_6
+      name: IMG_4141_6
       rect:
         serializedVersion: 2
         x: 450
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6ca60bc30eff74d87662e0211d6d86
-      internalID: -706683582
+      spriteID: a06bdf67891a4214396c82603c826a02
+      internalID: 540708238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tempbuttons_7
+      name: IMG_4141_7
       rect:
         serializedVersion: 2
         x: 525
@@ -282,8 +282,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f16abebbee7a1604dab130989c45216f
-      internalID: 457026733
+      spriteID: 121758439b3a93746816ae9f9fa8ac11
+      internalID: 1705400035
       vertices: []
       indices: 
       edges: []
@@ -292,7 +292,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 80bbac66f5c76d4499278f66bd64fb72
+    spriteID: 4947ca7815cb3f6448cdfcbf3de6b386
     internalID: 0
     vertices: []
     indices: 
@@ -304,14 +304,14 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":75.0,"y":75.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tempbuttons_0: 1973463970
-      tempbuttons_1: 1941309004
-      tempbuttons_2: 582419641
-      tempbuttons_3: -639604717
-      tempbuttons_4: -1830203158
-      tempbuttons_5: 1371804484
-      tempbuttons_6: -706683582
-      tempbuttons_7: 457026733
+      IMG_4141_0: 3904926764689910241
+      IMG_4141_1: 2055647806
+      IMG_4141_2: 1416610971
+      IMG_4141_3: 2026575514
+      IMG_4141_4: 1178682126
+      IMG_4141_5: -153945339
+      IMG_4141_6: 540708238
+      IMG_4141_7: 1705400035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,6 +19,8 @@ public class Troop : Agent
     public int HP;
     public int DamageDealt;
     public float Speed;
+    public float AttackSpeed;
+    private float timer;
 
     void Start()
     {
@@ -29,24 +31,30 @@ public class Troop : Agent
     {
         base.Update();
 
-        //for animation
-        if (anim != null && velocity.sqrMagnitude > 0.001f)
-        {
-            Vector3 dir = velocity.normalized;
-        }
+        timer += Time.deltaTime;
+
     }
 
     public override Vector3 CalcSteering()
     {
         Vector3 totalForce = Vector3.zero;
 
+        if (GetClosestTower() == null)
+        {
+            return totalForce;
+        }
         currentTowerLoc = GetClosestTower().transform;
         currentTower = GetClosestTower();
 
         if (currentTowerLoc != null && Vector3.Distance(transform.position, currentTowerLoc.position) <= attackDistance + 0.1f)
         {
-            //Attack here
             base.Stop();
+            //Attack here
+            if (timer >= AttackSpeed)
+            {
+                DealDamage();
+                timer = 0f;
+            }
         }
         /*
         THIS CAN BE USED TO MAKE TROOPS FLEE FROM TOWERS, MAYBE FOR BOMB, ETC?
@@ -65,7 +73,7 @@ public class Troop : Agent
             totalForce += (Vector3)Seek(currentTowerLoc.position) * seekWeight;
         }
 
-        return totalForce;
+        return totalForce * Speed;
     }
 
 
