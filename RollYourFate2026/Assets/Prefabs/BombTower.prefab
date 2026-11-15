@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 243218274802901774}
   - component: {fileID: 3635066660420046023}
   - component: {fileID: 5079431560685065477}
+  - component: {fileID: -4076850436967343560}
   m_Layer: 0
   m_Name: BombTower
   m_TagString: Tower
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3635066660420046023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   HP: 10
   DamageDealt: 0
-  attackSpeed: 1
+  attackSpeed: 5
   towerType: 2
   spriteRenderer: {fileID: 243218274802901774}
   towerSprites:
@@ -117,6 +118,7 @@ MonoBehaviour:
   bombradius: 2
   arrowPrefab: {fileID: 0}
   orbPrefab: {fileID: 0}
+  projectileSpawnOffset: {x: 0, y: 2, z: 0}
 --- !u!61 &5079431560685065477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,15 +153,29 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.015244961, y: 0}
+  m_Offset: {x: 0.015244961, y: 1.9973764}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 3, y: 4}
     newSize: {x: 3, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.4207354, y: 4}
+  m_Size: {x: 2.4207354, y: 4.0532627}
   m_EdgeRadius: 0
+--- !u!114 &-4076850436967343560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620617806367592294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc45cc559f6e994c95c2e3a55ca4971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.1

@@ -27,6 +27,7 @@ public class Troop : Agent
 
     public GameObject arrowPrefab;
     private float timer;
+    public Vector3 projectileSpawnOffset = new Vector3(0f, 0.5f, 0f);
 
     void Start()
     {
@@ -106,6 +107,7 @@ public class Troop : Agent
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        GetComponent<DamageFlash>()?.Flash();
         if (HP <= 0)
         {
             Destroy(gameObject);
@@ -147,12 +149,13 @@ public class Troop : Agent
 
     void fireArrow(Vector3 targetPos)
     {
-        Vector3 dir = targetPos - transform.position;
+        Vector3 spawnPos = transform.position + projectileSpawnOffset;
+        Vector3 dir = targetPos - spawnPos;
         dir.z = 0f;
         dir.Normalize();
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0f, 0f, angle));
+        GameObject arrow = Instantiate(arrowPrefab, spawnPos, Quaternion.Euler(0f, 0f, angle));
         arrow.GetComponent<Rigidbody2D>().linearVelocity = dir * 5f; // Change Speed
     }
 

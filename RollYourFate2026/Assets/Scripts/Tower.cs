@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour
     public float bombradius = 2f;
     public GameObject arrowPrefab;
     public GameObject orbPrefab;
+    public Vector3 projectileSpawnOffset = new Vector3(0f, 0.5f, 0f);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,6 +69,15 @@ public class Tower : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            TakeDamage(2);
+            Destroy(collision.gameObject);
+        }
+    }
+
     public GameObject findTarget()
     {
         List<GameObject> enemies = new List<GameObject>();
@@ -109,12 +119,13 @@ public class Tower : MonoBehaviour
 
     void fireArrow(Vector3 targetPos)
     {
-        Vector3 dir = targetPos - transform.position;
+        Vector3 spawnPos = transform.position + projectileSpawnOffset;
+        Vector3 dir = targetPos - spawnPos;
         dir.z = 0f;
         dir.Normalize();
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0f, 0f, angle));
+        GameObject arrow = Instantiate(arrowPrefab, spawnPos, Quaternion.Euler(0f, 0f, angle));
         arrow.GetComponent<Rigidbody2D>().linearVelocity = dir * 5f; // Change Speed
         Collider2D arrowCol = arrow.GetComponent<Collider2D>();
         foreach (Collider2D c in GetComponents<Collider2D>())
@@ -125,12 +136,13 @@ public class Tower : MonoBehaviour
 
     void fireOrb(Vector3 targetPos)
     {
-        Vector3 dir = targetPos - transform.position;
+        Vector3 spawnPos = transform.position + projectileSpawnOffset;
+        Vector3 dir = targetPos - spawnPos;
         dir.z = 0f;
         dir.Normalize();
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        GameObject orb = Instantiate(orbPrefab, transform.position, Quaternion.Euler(0f, 0f, angle));
+        GameObject orb = Instantiate(orbPrefab, spawnPos, Quaternion.Euler(0f, 0f, angle));
         orb.GetComponent<Rigidbody2D>().linearVelocity = dir * 2f; // Change Speed
         Collider2D orbCol = orb.GetComponent<Collider2D>();
         foreach (Collider2D c in GetComponents<Collider2D>())
