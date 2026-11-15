@@ -25,10 +25,17 @@ public class Tower : MonoBehaviour
     private bool dead = false;
     public ParticleSystem explosionEffect;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip towerHurt;
+    [SerializeField] private AudioClip towerDestroyed;
+    [SerializeField] private AudioClip bombExplosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         maxHP = HP;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.pitch = 0.3f;
     }
 
     // Update is called once per frame
@@ -50,6 +57,7 @@ public class Tower : MonoBehaviour
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        audioSource.PlayOneShot(towerHurt);
         GetComponent<DamageFlash>()?.Flash();
         if (HP <= 0 && !dead)
         {
@@ -57,6 +65,7 @@ public class Tower : MonoBehaviour
             OnTowerDestroyed?.Invoke(0.1f);
             Destroy(gameObject);
             Camera.main.transform.GetComponent<CameraShake>().TriggerShake(0.5f, 0.2f);
+            audioSource.PlayOneShot(towerDestroyed);
             return;
         }
 
@@ -178,6 +187,7 @@ public class Tower : MonoBehaviour
         enemies.AddRange(GameObject.FindGameObjectsWithTag("Bomber"));
         //sets mindist to really far away, then checks each enemy to see if its closer.
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(bombExplosion);
         foreach (GameObject e in enemies)
         {
             if (Vector3.Distance(transform.position, e.transform.position) <= bombradius)

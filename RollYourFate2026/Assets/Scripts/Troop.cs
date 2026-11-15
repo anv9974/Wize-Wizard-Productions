@@ -29,9 +29,14 @@ public class Troop : Agent
     private float timer;
     public Vector3 projectileSpawnOffset = new Vector3(0f, 0.5f, 0f);
 
+    private AudioSource audioSource;
+    [SerializeField] AudioClip enemyHurt;
+    [SerializeField] AudioClip bombExplosion;
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void Update()
@@ -113,6 +118,7 @@ public class Troop : Agent
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        audioSource.PlayOneShot(enemyHurt);
         GetComponent<DamageFlash>()?.Flash();
         if (HP <= 0)
         {
@@ -144,6 +150,7 @@ public class Troop : Agent
                 }
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
                 Camera.main.transform.GetComponent<CameraShake>().TriggerShake(0.2f, 1f);
+                audioSource.PlayOneShot(bombExplosion);
                 Destroy(gameObject);
                 break;
             case "Archer":

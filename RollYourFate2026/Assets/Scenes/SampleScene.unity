@@ -516,7 +516,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.20422535
     y: 0
     width: 1.4084507
     height: 1.0004698
@@ -819,6 +819,9 @@ MonoBehaviour:
   orbPrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
   explosionEffect: {fileID: 0}
+  towerHurt: {fileID: 0}
+  towerDestroyed: {fileID: 0}
+  bombExplosion: {fileID: 0}
 --- !u!1 &588707415
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +979,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1001 &729013152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -995,7 +997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683643600720504448, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6889216544979505920, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1467,7 +1469,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb15faabd89807e40916a53e8daff97c, type: 3}
-
 --- !u!1001 &1096076711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,7 +1487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683643600720504448, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6889216544979505920, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1891,7 +1892,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6a021f4813e8cdf4aa69dc986608a375, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2437,6 +2438,8 @@ MonoBehaviour:
   explosionEffect: {fileID: 0}
   arrowPrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
+  enemyHurt: {fileID: 0}
+  bombExplosion: {fileID: 0}
 --- !u!212 &1885568988
 SpriteRenderer:
   serializedVersion: 2
@@ -3340,3 +3343,5 @@ SceneRoots:
   - {fileID: 835018624532493634}
   - {fileID: 2018859194}
   - {fileID: 122637034}
+  - {fileID: 1096076711}
+  - {fileID: 729013152}
