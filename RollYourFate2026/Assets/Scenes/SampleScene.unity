@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -281,6 +282,18 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5323704ef49f6ef48b192bace6a4a5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
 --- !u!1 &573258026
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +542,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   iconSelector: {fileID: 2105224163}
+  troopPrefabs:
+  - {fileID: 3076015028365818391, guid: bb15faabd89807e40916a53e8daff97c, type: 3}
+  - {fileID: 8697689941035932506, guid: 89f476b0e0644244284b3aced0e66b72, type: 3}
+  - {fileID: 8519445239701948569, guid: 73923ad8ce782f242a6989baad9a5940, type: 3}
+  - {fileID: 3448786822866241153, guid: 329bdbf2dd7682544aaa5d192270aa5b, type: 3}
 --- !u!4 &588707417
 Transform:
   m_ObjectHideFlags: 0
@@ -1481,7 +1499,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!224 &1725257029
 RectTransform:
@@ -1580,6 +1598,7 @@ MonoBehaviour:
   DamageDealt: 2
   Speed: 0
   AttackSpeed: 3
+  explosionEffect: {fileID: 0}
 --- !u!212 &1885568988
 SpriteRenderer:
   serializedVersion: 2

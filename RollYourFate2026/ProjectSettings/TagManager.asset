@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tower
   - Generic
+  - Bomber
   layers:
   - Default
   - TransparentFX

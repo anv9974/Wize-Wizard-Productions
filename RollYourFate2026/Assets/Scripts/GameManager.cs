@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public int troopType {get; private set;}
 
     public TroopSelect iconSelector;
+    public Troop [] troopPrefabs;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            pos.z = 0f;
+            Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
+            //Instantiate(troopPrefabs[troopType - 1], Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Quaternion.identity);
+        }
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             select(1);

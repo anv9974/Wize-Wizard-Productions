@@ -20,6 +20,8 @@ public class Troop : Agent
     public int DamageDealt;
     public float Speed;
     public float AttackSpeed;
+
+    public ParticleSystem explosionEffect;
     private float timer;
 
     void Start()
@@ -120,7 +122,11 @@ public class Troop : Agent
                 tower.TakeDamage(DamageDealt);
                 break;
             case "Bomber":
+                Instantiate(explosionEffect, transform.position, Quaternion.identity);
                 tower.TakeDamage(DamageDealt);
+                Camera.main.transform.GetComponent<CameraShake>().TriggerShake(0.2f, 1f);
+                
+                Destroy(gameObject);
                 break;
             case "Archer":
                 tower.TakeDamage(DamageDealt);
