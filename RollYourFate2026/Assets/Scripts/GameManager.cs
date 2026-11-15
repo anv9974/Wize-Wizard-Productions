@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (uiManager.spendMoney(amt))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            pos.z = 0;
             Debug.Log("Money spent: " + amt);
             Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
             uiManager.increaseMultiplier(0.5f);
