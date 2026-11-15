@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8519445239701948569}
   m_Layer: 0
   m_Name: Brute
-  m_TagString: Untagged
+  m_TagString: Brute
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +142,6 @@ MonoBehaviour:
   DamageDealt: 4
   Speed: 0.5
   AttackSpeed: 3
+  bombradius: 2
+  explosionEffect: {fileID: 0}
+  arrowPrefab: {fileID: 0}

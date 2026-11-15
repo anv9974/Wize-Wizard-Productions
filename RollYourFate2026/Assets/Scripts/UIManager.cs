@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
             money += 1 * multiplier;
             moneytimer = 0f;
         }
-        moneyText.text = money.ToString() + " - " + multiplier.ToString() + "x";
+        moneyText.text = money.ToString() + " : " + multiplier.ToString() + "x";
         timerText.text = "Timer: " + timer.ToString("F1");
 
         moneyBar.fillAmount = moneytimer / moneytime;

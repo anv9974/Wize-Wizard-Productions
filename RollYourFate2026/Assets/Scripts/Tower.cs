@@ -38,4 +38,13 @@ public class Tower : MonoBehaviour
             spriteRenderer.sprite = towerSprites[1];
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            TakeDamage(2);
+            Destroy(collision.gameObject);
+        }
+    }
 }

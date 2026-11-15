@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3076015028365818391}
   m_Layer: 0
   m_Name: GenericTroop
-  m_TagString: Untagged
+  m_TagString: Generic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +142,6 @@ MonoBehaviour:
   DamageDealt: 2
   Speed: 1
   AttackSpeed: 3
+  bombradius: 2
+  explosionEffect: {fileID: 0}
+  arrowPrefab: {fileID: 0}

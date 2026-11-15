@@ -21,7 +21,11 @@ public class Troop : Agent
     public float Speed;
     public float AttackSpeed;
 
+    public float bombradius = 2f;
+
     public ParticleSystem explosionEffect;
+
+    public GameObject arrowPrefab;
     private float timer;
 
     void Start()
@@ -122,15 +126,34 @@ public class Troop : Agent
                 tower.TakeDamage(DamageDealt);
                 break;
             case "Bomber":
+                GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+                foreach (GameObject t in towers)
+                {
+                    if (Vector3.Distance(transform.position, t.transform.position) <= bombradius)
+                    {
+                        t.GetComponent<Tower>().TakeDamage(DamageDealt);
+                    }
+                }
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
-                tower.TakeDamage(DamageDealt);
                 Camera.main.transform.GetComponent<CameraShake>().TriggerShake(0.2f, 1f);
-                
                 Destroy(gameObject);
                 break;
             case "Archer":
-                tower.TakeDamage(DamageDealt);
+                fireArrow(currentTowerLoc.position);
+                //tower.TakeDamage(DamageDealt);
                 break;
         }
     }
+
+    void fireArrow(Vector3 targetPos)
+    {
+        Vector3 dir = targetPos - transform.position;
+        dir.z = 0f;
+        dir.Normalize();
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.Euler(0f, 0f, angle));
+        arrow.GetComponent<Rigidbody2D>().linearVelocity = dir * 5f; // Change Speed
+    }
+
 }

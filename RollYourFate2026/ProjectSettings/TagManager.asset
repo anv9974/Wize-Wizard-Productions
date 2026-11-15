@@ -7,6 +7,9 @@ TagManager:
   - Tower
   - Generic
   - Bomber
+  - Archer
+  - Brute
+  - Arrow
   layers:
   - Default
   - TransparentFX
