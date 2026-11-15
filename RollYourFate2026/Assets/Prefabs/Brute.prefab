@@ -140,10 +140,10 @@ MonoBehaviour:
   arriveDistance: 2
   fleeDistance: 5
   attackDistance: 1
-  HP: 20
+  HP: 30
   DamageDealt: 4
   Speed: 0.5
-  AttackSpeed: 3
+  AttackSpeed: 2
   bombradius: 2
   explosionEffect: {fileID: 0}
   arrowPrefab: {fileID: 0}

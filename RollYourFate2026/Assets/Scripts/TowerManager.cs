@@ -38,6 +38,19 @@ public class TowerManager : MonoBehaviour
         }
         
         SpawnTowersInCircle(center.position, radius);
+
+        for (int i = 0; i < archerTowerCount; i++) Towers.Add(archerTower);
+        for (int i = 0; i < magicTowerCount; i++) Towers.Add(magicTower);
+        for (int i = 0; i < bombTowerCount; i++) Towers.Add(bombTower);
+
+        // Randomizes Towers in List
+        for (int i = Towers.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (Towers[i], Towers[j]) = (Towers[j], Towers[i]);
+        }
+        SpawnTowersInCircle(center.position, radius * 1.7f);
+
     }
 
     // Update is called once per frame

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3635066660420046023}
   - component: {fileID: 5079431560685065477}
   - component: {fileID: -4076850436967343560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BombTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -106,20 +106,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb96a1ca31ca941863c0292c993e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  HP: 10
+  HP: 20
   DamageDealt: 0
   attackSpeed: 5
   towerType: 2
-  range: 5
+  range: 3
   spriteRenderer: {fileID: 243218274802901774}
   towerSprites:
   - {fileID: -1865150848, guid: 2827e229b8c0f9c41892e3cd49f2fbef, type: 3}
   - {fileID: 926043456, guid: 2827e229b8c0f9c41892e3cd49f2fbef, type: 3}
   - {fileID: -111069052, guid: 2827e229b8c0f9c41892e3cd49f2fbef, type: 3}
-  bombradius: 2
+  bombradius: 3
   arrowPrefab: {fileID: 0}
   orbPrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 2, z: 0}
+  explosionEffect: {fileID: 8457300847723380050, guid: 69fb185b9c7af0e4692d0326f9eb7986, type: 3}
 --- !u!61 &5079431560685065477
 BoxCollider2D:
   m_ObjectHideFlags: 0

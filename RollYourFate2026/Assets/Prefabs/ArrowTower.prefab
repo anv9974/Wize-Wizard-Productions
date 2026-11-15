@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7797733148156805484}
   - component: {fileID: 8000708613946844426}
   - component: {fileID: 1275004142252535160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArrowTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb96a1ca31ca941863c0292c993e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  HP: 10
+  HP: 20
   DamageDealt: 0
   attackSpeed: 1
   towerType: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 1123629607159813693, guid: 73ff6f0105f348b49bec88e46913d126, type: 3}
   orbPrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 2, z: 0}
+  explosionEffect: {fileID: 0}
 --- !u!61 &8000708613946844426
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,4 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
-  flashTime: 1
+  flashTime: 0.1

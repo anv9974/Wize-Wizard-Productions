@@ -23,6 +23,7 @@ public class Tower : MonoBehaviour
     public Vector3 projectileSpawnOffset = new Vector3(0f, 0.5f, 0f);
     public static event Action<float> OnTowerDestroyed;
     private bool dead = false;
+    public ParticleSystem explosionEffect;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +56,7 @@ public class Tower : MonoBehaviour
             dead = true;
             OnTowerDestroyed?.Invoke(0.1f);
             Destroy(gameObject);
+            Camera.main.transform.GetComponent<CameraShake>().TriggerShake(0.5f, 0.2f);
             return;
         }
 
@@ -147,6 +149,7 @@ public class Tower : MonoBehaviour
         {
             Physics2D.IgnoreCollision(arrowCol, c);
         }
+        Destroy(arrow, 5f);
     }
 
     void fireOrb(Vector3 targetPos)
@@ -174,7 +177,7 @@ public class Tower : MonoBehaviour
         enemies.AddRange(GameObject.FindGameObjectsWithTag("Brute"));
         enemies.AddRange(GameObject.FindGameObjectsWithTag("Bomber"));
         //sets mindist to really far away, then checks each enemy to see if its closer.
-
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
         foreach (GameObject e in enemies)
         {
             if (Vector3.Distance(transform.position, e.transform.position) <= bombradius)

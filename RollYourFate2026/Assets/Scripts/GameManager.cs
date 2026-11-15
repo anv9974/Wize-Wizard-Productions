@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             pos.z = 0f;
             Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
-            uiManager.increaseMultiplier(0.5f);
+            //uiManager.increaseMultiplier(0.5f);
             //Instantiate(troopPrefabs[troopType - 1], Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Quaternion.identity);
         }
     }

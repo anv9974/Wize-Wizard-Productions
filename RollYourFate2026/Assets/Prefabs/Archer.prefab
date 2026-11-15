@@ -139,11 +139,11 @@ MonoBehaviour:
   fleeWeight: 2
   arriveDistance: 2
   fleeDistance: 5
-  attackDistance: 6
-  HP: 2
-  DamageDealt: 5
+  attackDistance: 5.1
+  HP: 10
+  DamageDealt: 2
   Speed: 1
-  AttackSpeed: 3
+  AttackSpeed: 1
   bombradius: 2
   explosionEffect: {fileID: 0}
   arrowPrefab: {fileID: 1123629607159813693, guid: 2b1d1e4ffc1496e45b64693d1d2f6fab, type: 3}

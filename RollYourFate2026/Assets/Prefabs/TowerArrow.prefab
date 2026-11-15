@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1066756157905838152}
   - component: {fileID: 8457652748967819146}
   - component: {fileID: -4400463437557219707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TowerArrow
   m_TagString: TowerArrow
   m_Icon: {fileID: 0}

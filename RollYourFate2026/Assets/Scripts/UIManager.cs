@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +21,9 @@ public class UIManager : MonoBehaviour
 
     private float MoneyTime => moneytime / multiplier;
 
+    private int towersRemaining;
+    private bool gameEnded = false;
+
     Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +34,7 @@ public class UIManager : MonoBehaviour
 
         originalTimer = timer;
         anim = wizardProfile.GetComponent<Animator>();
+        towersRemaining = GameObject.FindGameObjectsWithTag("Tower").Length;
     }
 
     // Update is called once per frame
@@ -47,6 +52,11 @@ public class UIManager : MonoBehaviour
         moneyBar.fillAmount = moneytimer / MoneyTime;
 
         timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            timer = 0f;
+            EndGame("GameOver");
+        }
 
         setWizardProfile();
     }
@@ -86,10 +96,28 @@ public class UIManager : MonoBehaviour
     void OnEnable()
     {
         Tower.OnTowerDestroyed += increaseMultiplier;
+        Tower.OnTowerDestroyed += HandleTowerDestroyed;
     }
 
     void OnDisable()
     {
         Tower.OnTowerDestroyed -= increaseMultiplier;
+        Tower.OnTowerDestroyed -= HandleTowerDestroyed;
+    }
+    void HandleTowerDestroyed(float bonus)
+    {
+        towersRemaining--;
+        if (towersRemaining <= 0)
+        {
+            EndGame("WinScreen");
+        }
+    }
+
+    void EndGame(string sceneName)
+    {
+        if (gameEnded) return;
+        gameEnded = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 }

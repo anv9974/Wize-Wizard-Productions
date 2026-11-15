@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3110058801819342646}
   - component: {fileID: 5172479078466449010}
   - component: {fileID: -189515943495212050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrbTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb96a1ca31ca941863c0292c993e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  HP: 10
+  HP: 20
   DamageDealt: 0
   attackSpeed: 5
   towerType: 1
@@ -120,6 +120,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 0}
   orbPrefab: {fileID: 2923826002464550803, guid: db6eff6e50e4d6f4c83126c553d2af8a, type: 3}
   projectileSpawnOffset: {x: 0, y: 2, z: 0}
+  explosionEffect: {fileID: 0}
 --- !u!61 &5172479078466449010
 BoxCollider2D:
   m_ObjectHideFlags: 0

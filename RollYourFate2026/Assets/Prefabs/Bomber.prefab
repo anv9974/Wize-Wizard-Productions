@@ -140,11 +140,11 @@ MonoBehaviour:
   arriveDistance: 2
   fleeDistance: 5
   attackDistance: 0.5
-  HP: 5
-  DamageDealt: 2
-  Speed: 3
+  HP: 10
+  DamageDealt: 20
+  Speed: 5
   AttackSpeed: 0
-  bombradius: 5
+  bombradius: 5.04
   explosionEffect: {fileID: 8457300847723380050, guid: 69fb185b9c7af0e4692d0326f9eb7986, type: 3}
   arrowPrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 0.5, z: 0}

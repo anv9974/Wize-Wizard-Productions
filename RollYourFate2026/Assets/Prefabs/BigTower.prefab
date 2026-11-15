@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4115985222944251658}
   - component: {fileID: 844024311553749470}
   - component: {fileID: 8751273672836342817}
-  m_Layer: 0
+  - component: {fileID: 2927569408471893848}
+  m_Layer: 6
   m_Name: BigTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb96a1ca31ca941863c0292c993e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
-  HP: 36
+  HP: 50
   DamageDealt: 0
   attackSpeed: 1
   towerType: 3
@@ -119,6 +120,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 1123629607159813693, guid: 73ff6f0105f348b49bec88e46913d126, type: 3}
   orbPrefab: {fileID: 2923826002464550803, guid: db6eff6e50e4d6f4c83126c553d2af8a, type: 3}
   projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
+  explosionEffect: {fileID: 0}
 --- !u!61 &8751273672836342817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +167,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.7902613, y: 2.799677}
   m_EdgeRadius: 0
+--- !u!114 &2927569408471893848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677607630693240479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc45cc559f6e994c95c2e3a55ca4971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.1
