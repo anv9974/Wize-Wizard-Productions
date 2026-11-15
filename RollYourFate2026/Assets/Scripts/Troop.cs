@@ -52,8 +52,14 @@ public class Troop : Agent
         }
         currentTowerLoc = GetClosestTower().transform;
         currentTower = GetClosestTower();
-
-        if (currentTowerLoc != null && Vector3.Distance(transform.position, currentTowerLoc.position) <= attackDistance + 0.1f)
+        Collider2D col = currentTower.GetComponent<Collider2D>();
+        Vector3 targetPos = currentTowerLoc.position;
+        if (col != null)
+        {
+            Vector2 p = col.ClosestPoint(transform.position);
+            targetPos = new Vector3(p.x, p.y, transform.position.z);
+        }
+        if (currentTowerLoc != null && Vector3.Distance(transform.position, targetPos) <= attackDistance + 0.1f)
         {
             base.Stop();
             //Attack here
@@ -70,14 +76,14 @@ public class Troop : Agent
             totalForce += (Vector3)Flee(currentTower.position) * fleeWeight;
         }
         */
-        else if (currentTowerLoc != null && Vector3.Distance(transform.position, currentTowerLoc.position) - attackDistance <= arriveDistance)
+        else if (currentTowerLoc != null && Vector3.Distance(transform.position, targetPos) - attackDistance <= arriveDistance)
         {
-            Vector3 stopPoint = currentTowerLoc.position - (currentTowerLoc.position - transform.position).normalized * attackDistance;
+            Vector3 stopPoint = targetPos - (targetPos - transform.position).normalized * attackDistance;
             totalForce += (Vector3)Arrive(stopPoint, arriveDistance) * arriveWeight;
         }
         else if (currentTowerLoc != null)
         {
-            totalForce += (Vector3)Seek(currentTowerLoc.position) * seekWeight;
+            totalForce += (Vector3)Seek(targetPos) * seekWeight;
         }
 
         return totalForce * Speed;
