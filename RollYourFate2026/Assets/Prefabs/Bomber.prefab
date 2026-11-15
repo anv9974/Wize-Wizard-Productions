@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1889043712939152429}
   - component: {fileID: 3448786822866241153}
   - component: {fileID: 9212642909838608967}
+  - component: {fileID: 8721041890322579317}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Bomber
@@ -146,6 +147,7 @@ MonoBehaviour:
   bombradius: 5
   explosionEffect: {fileID: 8457300847723380050, guid: 69fb185b9c7af0e4692d0326f9eb7986, type: 3}
   arrowPrefab: {fileID: 0}
+  projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!61 &9212642909838608967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +194,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.92504215, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &8721041890322579317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306256068847242580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc45cc559f6e994c95c2e3a55ca4971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.1

@@ -139,7 +139,7 @@ MonoBehaviour:
   fleeWeight: 2
   arriveDistance: 2
   fleeDistance: 5
-  attackDistance: 0.5
+  attackDistance: 0.1
   HP: 10
   DamageDealt: 2
   Speed: 1
@@ -147,6 +147,7 @@ MonoBehaviour:
   bombradius: 2
   explosionEffect: {fileID: 0}
   arrowPrefab: {fileID: 0}
+  projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!61 &6722434771577504261
 BoxCollider2D:
   m_ObjectHideFlags: 0

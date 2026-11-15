@@ -82,4 +82,14 @@ public class UIManager : MonoBehaviour
     {
         multiplier += amount;
     }
+
+    void OnEnable()
+    {
+        Tower.OnTowerDestroyed += increaseMultiplier;
+    }
+
+    void OnDisable()
+    {
+        Tower.OnTowerDestroyed -= increaseMultiplier;
+    }
 }

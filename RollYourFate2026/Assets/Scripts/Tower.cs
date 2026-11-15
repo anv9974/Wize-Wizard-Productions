@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class Tower : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class Tower : MonoBehaviour
     public float attackSpeed = 1f;
     public int towerType; // 0 = Arrow, 1 = Orb, 2 = Bomb
 
+    public float range = 5f;
+
     public SpriteRenderer spriteRenderer;
     public Sprite[] towerSprites;
     public float bombradius = 2f;
     public GameObject arrowPrefab;
     public GameObject orbPrefab;
     public Vector3 projectileSpawnOffset = new Vector3(0f, 0.5f, 0f);
+    public static event Action<float> OnTowerDestroyed;
+    private bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,9 +50,12 @@ public class Tower : MonoBehaviour
     {
         HP -= damage;
         GetComponent<DamageFlash>()?.Flash();
-        if (HP <= 0)
+        if (HP <= 0 && !dead)
         {
+            dead = true;
+            OnTowerDestroyed?.Invoke(0.1f);
             Destroy(gameObject);
+            return;
         }
 
         if (HP < maxHP / 3)
@@ -92,10 +100,13 @@ public class Tower : MonoBehaviour
         foreach (GameObject e in enemies)
         {
             float dist = Vector3.Distance(transform.position, e.transform.position);
-            if (dist < minDistance)
+            if (dist <= range)
             {
-                minDistance = dist;
-                closest = e;
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    closest = e;
+                }
             }
         }
         return closest;
@@ -113,6 +124,10 @@ public class Tower : MonoBehaviour
                 break;
             case 2:
                 BombAttack();
+                break;
+            case 3:
+                fireArrow(findTarget().transform.position);
+                fireOrb(findTarget().transform.position);
                 break;
         }
     }

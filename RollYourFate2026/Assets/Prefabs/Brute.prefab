@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8580231944413235970}
   - component: {fileID: 8519445239701948569}
   - component: {fileID: 4946761119926950332}
+  - component: {fileID: -6770118530467402565}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Brute
@@ -146,6 +147,7 @@ MonoBehaviour:
   bombradius: 2
   explosionEffect: {fileID: 0}
   arrowPrefab: {fileID: 0}
+  projectileSpawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!61 &4946761119926950332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +194,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.64248717, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &-6770118530467402565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025633461267126944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc45cc559f6e994c95c2e3a55ca4971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.1
