@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrbTower
       objectReference: {fileID: 0}
+    - target: {fileID: 4683643600720504448, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6889216544979505920, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.454894
@@ -512,15 +516,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: -0.20422535
     y: 0
-    width: 1
+    width: 1.4084507
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 18.75
+  orthographic size: 13.3125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -824,6 +828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588707417}
   - component: {fileID: 588707416}
+  - component: {fileID: 588707418}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -865,6 +870,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &588707418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588707415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e320c8beecaf3545b51ccaa150f85fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerManager
+  towerPrefabs:
+  - {fileID: 7707745367224247861, guid: 668e35484c089cd42a3c3850f51a0d16, type: 3}
+  - {fileID: 4683643600720504448, guid: 955968a723952d24a8436e312ceedf0d, type: 3}
+  - {fileID: 4620617806367592294, guid: 4b062fcae118e0b4ab27ec6886fc4c1d, type: 3}
+  archerTowerCount: 6
+  magicTowerCount: 4
+  bombTowerCount: 2
+  center: {fileID: 1877712524}
+  radius: 6.8
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2251,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &1877712524 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4049085605174492550, guid: acd2005d8fe2efd42820d847eaedf2cb, type: 3}
+  m_PrefabInstance: {fileID: 835018624532493634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885568985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,11 +2860,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4049085605174492550, guid: acd2005d8fe2efd42820d847eaedf2cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.52
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 4049085605174492550, guid: acd2005d8fe2efd42820d847eaedf2cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: -1.735021
       objectReference: {fileID: 0}
     - target: {fileID: 4049085605174492550, guid: acd2005d8fe2efd42820d847eaedf2cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2873,7 +2904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8677607630693240479, guid: acd2005d8fe2efd42820d847eaedf2cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
