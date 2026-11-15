@@ -14,7 +14,7 @@ public class TowerManager : MonoBehaviour
     private GameObject bombTower;
 
     [SerializeField] private Transform center;
-    private float radius;
+    [SerializeField] private float radius;
 
 
     private List<GameObject> Towers = new List<GameObject>();
@@ -23,8 +23,8 @@ public class TowerManager : MonoBehaviour
     void Start()
     {
         archerTower = towerPrefabs[0];
-        magicTower = towerPrefabs[3];
-        bombTower = towerPrefabs[6];
+        magicTower = towerPrefabs[1];
+        bombTower = towerPrefabs[2];
 
         for (int i = 0; i < archerTowerCount; i++) Towers.Add(archerTower);
         for (int i = 0; i < magicTowerCount; i++) Towers.Add(magicTower);
@@ -37,7 +37,7 @@ public class TowerManager : MonoBehaviour
             (Towers[i], Towers[j]) = (Towers[j], Towers[i]);
         }
         
-        //SpawnTowersInCircle(center.position, radius);
+        SpawnTowersInCircle(center.position, radius);
     }
 
     // Update is called once per frame
@@ -46,9 +46,11 @@ public class TowerManager : MonoBehaviour
         
     }
 
-    /*private void SpawnTowersInCircle(Vector3 centerPos, float circleRadius)
+    private void SpawnTowersInCircle(Vector3 centerPos, float circleRadius)
     {
         int count = Towers.Count;
+        if (count == 0) return;
+
         float angleStep = 2f * Mathf.PI / count;
 
         for (int i = 0; i < count; i++)
@@ -56,10 +58,8 @@ public class TowerManager : MonoBehaviour
             float angle = i * angleStep;
             Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * circleRadius;
 
-            GameObject tower = new GameObject("Tower " + i);
-            tower.transform.position = centerPos + offset;
-            SpriteRenderer sr = tower.AddComponent<SpriteRenderer>();
-            sr.sprite = Towers[i];
+            // Last argument parents each tower under this manager
+            Instantiate(Towers[i], centerPos + offset, Quaternion.identity, transform);
         }
-    }*/
+    }
 }
