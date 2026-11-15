@@ -156,4 +156,20 @@ public class Troop : Agent
         arrow.GetComponent<Rigidbody2D>().linearVelocity = dir * 5f; // Change Speed
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("TowerArrow"))
+        {
+            TakeDamage(2);
+            Destroy(collision.gameObject);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Orb"))
+        {
+            TakeDamage(1);
+        }
+    }
+
 }

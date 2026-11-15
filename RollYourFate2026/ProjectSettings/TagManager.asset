@@ -10,6 +10,8 @@ TagManager:
   - Archer
   - Brute
   - Arrow
+  - TowerArrow
+  - Orb
   layers:
   - Default
   - TransparentFX
