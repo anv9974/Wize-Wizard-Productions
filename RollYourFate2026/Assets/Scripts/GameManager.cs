@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public TroopSelect iconSelector;
     public UIManager uiManager;
     public Troop [] troopPrefabs;
+
+    public LayerMask blockSpawnLayers;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,11 +88,22 @@ public class GameManager : MonoBehaviour
     bool CanSpawn()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Collider2D hit = Physics2D.OverlapPoint(pos);
+        //Collider2D hit = Physics2D.OverlapPoint(pos);
         pos.z = 0f;
+        /*
         bool isOnScreen = pos.x > -8.85 & pos.x < 17.7 & pos.y < 13.2 & pos.y > -13.2;
-        bool notInRadius = hit == null;
-        bool canSpawn = isOnScreen && notInRadius;
-        return canSpawn;
+        if (!isOnScreen)
+        {
+            return false;
+        }
+        */
+        foreach (Collider2D col in Physics2D.OverlapPointAll(pos))
+        {
+            if (col.CompareTag("NoSpawn"))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

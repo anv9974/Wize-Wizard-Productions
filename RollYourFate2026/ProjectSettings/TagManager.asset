@@ -12,6 +12,7 @@ TagManager:
   - Arrow
   - TowerArrow
   - Orb
+  - NoSpawn
   layers:
   - Default
   - TransparentFX

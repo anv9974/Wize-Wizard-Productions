@@ -111,7 +111,7 @@ MonoBehaviour:
   DamageDealt: 0
   attackSpeed: 1
   towerType: 0
-  range: 5
+  range: 5.5
   spriteRenderer: {fileID: 1504985754604451318}
   towerSprites:
   - {fileID: 6304826840174917774, guid: 2827e229b8c0f9c41892e3cd49f2fbef, type: 3}
