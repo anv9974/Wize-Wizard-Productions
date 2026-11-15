@@ -744,8 +744,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   HP: 1000
   DamageDealt: 1
+  attackSpeed: 1
+  towerType: 0
   spriteRenderer: {fileID: 0}
   towerSprites: []
+  bombradius: 2
+  arrowPrefab: {fileID: 0}
+  orbPrefab: {fileID: 0}
 --- !u!1 &588707415
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   iconSelector: {fileID: 2105224163}
+  uiManager: {fileID: 2105224161}
   troopPrefabs:
   - {fileID: 3076015028365818391, guid: bb15faabd89807e40916a53e8daff97c, type: 3}
   - {fileID: 8697689941035932506, guid: 89f476b0e0644244284b3aced0e66b72, type: 3}
@@ -1677,11 +1683,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   HP: 36
   DamageDealt: 0
+  attackSpeed: 1
+  towerType: 0
   spriteRenderer: {fileID: 1308215538}
   towerSprites:
   - {fileID: 5922820561717300724, guid: 0f6517454afb101469d69f9fa4f3efa2, type: 3}
   - {fileID: 91164213, guid: 0f6517454afb101469d69f9fa4f3efa2, type: 3}
   - {fileID: -569254569, guid: 0f6517454afb101469d69f9fa4f3efa2, type: 3}
+  bombradius: 2
+  arrowPrefab: {fileID: 1123629607159813693, guid: 2b1d1e4ffc1496e45b64693d1d2f6fab, type: 3}
+  orbPrefab: {fileID: 0}
 --- !u!61 &1308215541
 BoxCollider2D:
   m_ObjectHideFlags: 0

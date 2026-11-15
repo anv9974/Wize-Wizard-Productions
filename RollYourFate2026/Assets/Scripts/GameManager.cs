@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public int troopType {get; private set;}
 
     public TroopSelect iconSelector;
+    public UIManager uiManager;
     public Troop [] troopPrefabs;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,10 +21,7 @@ public class GameManager : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            pos.z = 0f;
-            Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
-            //Instantiate(troopPrefabs[troopType - 1], Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Quaternion.identity);
+            SpendMoney();
         }
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
@@ -53,6 +51,35 @@ public class GameManager : MonoBehaviour
         {
             troopType = (int)inputValue;
             iconSelector.SetSelected(troopType - 1);
+        }
+    }
+
+    void SpendMoney()
+    {
+        int amt = 0;
+        switch (troopType)
+        {
+            case 1:
+                amt = 1;
+                break;
+            case 2:
+                amt = 5;
+                break;
+            case 3:
+                amt = 10;
+                break;
+            case 4:
+                amt = 20;
+                break;
+        }
+        if (uiManager.spendMoney(amt))
+        {
+            Debug.Log("Money spent: " + amt);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            pos.z = 0f;
+            Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
+            uiManager.increaseMultiplier(0.5f);
+            //Instantiate(troopPrefabs[troopType - 1], Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Quaternion.identity);
         }
     }
 }

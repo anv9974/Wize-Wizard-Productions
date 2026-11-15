@@ -13,10 +13,12 @@ public class UIManager : MonoBehaviour
     public float timer;
     private float originalTimer;
     private int money;
-    private int multiplier;
+    private float multiplier;
 
     private float moneytime = 2f;
     private float moneytimer = 0f;
+
+    private float MoneyTime => moneytime / multiplier;
 
     Animator anim;
 
@@ -34,15 +36,15 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         moneytimer += Time.deltaTime;
-        if (moneytimer >= moneytime)
+        if (moneytimer >= MoneyTime)
         {
-            money += 1 * multiplier;
-            moneytimer = 0f;
+            money += 1;
+            moneytimer -= MoneyTime;
         }
         moneyText.text = money.ToString() + " : " + multiplier.ToString() + "x";
         timerText.text = "Timer: " + timer.ToString("F1");
 
-        moneyBar.fillAmount = moneytimer / moneytime;
+        moneyBar.fillAmount = moneytimer / MoneyTime;
 
         timer -= Time.deltaTime;
 
@@ -64,5 +66,20 @@ public class UIManager : MonoBehaviour
         {
             anim.SetInteger("panicstate", 1);
         }
+    }
+
+    public bool spendMoney(int amount)
+    {
+        if (money - amount < 0)
+        {
+            return false;
+        }
+        money -= amount;
+        return true;
+    }
+
+    public void increaseMultiplier(float amount)
+    {
+        multiplier += amount;
     }
 }
