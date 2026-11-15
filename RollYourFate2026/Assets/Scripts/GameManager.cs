@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame & CanSpawn())
         {
             SpendMoney();
         }
@@ -72,14 +71,26 @@ public class GameManager : MonoBehaviour
                 amt = 20;
                 break;
         }
+
         if (uiManager.spendMoney(amt))
         {
-            Debug.Log("Money spent: " + amt);
             Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            pos.z = 0f;
+            pos.z = 0;
+            Debug.Log("Money spent: " + amt);
             Instantiate(troopPrefabs[troopType - 1], pos, Quaternion.identity);
             //uiManager.increaseMultiplier(0.5f);
             //Instantiate(troopPrefabs[troopType - 1], Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Quaternion.identity);
         }
+    }
+
+    bool CanSpawn()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Collider2D hit = Physics2D.OverlapPoint(pos);
+        pos.z = 0f;
+        bool isOnScreen = pos.x > -8.85 & pos.x < 17.7 & pos.y < 13.2 & pos.y > -13.2;
+        bool notInRadius = hit == null;
+        bool canSpawn = isOnScreen && notInRadius;
+        return canSpawn;
     }
 }
