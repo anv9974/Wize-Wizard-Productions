@@ -141,7 +141,7 @@ MonoBehaviour:
   fleeDistance: 5
   attackDistance: 0.5
   HP: 10
-  DamageDealt: 20
+  DamageDealt: 15
   Speed: 5
   AttackSpeed: 0
   bombradius: 5.04

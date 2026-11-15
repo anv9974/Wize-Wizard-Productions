@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   HP: 20
   DamageDealt: 0
-  attackSpeed: 5
+  attackSpeed: 4
   towerType: 1
   range: 5
   spriteRenderer: {fileID: 5608529617032388324}

@@ -49,7 +49,7 @@ public class TowerManager : MonoBehaviour
             int j = Random.Range(0, i + 1);
             (Towers[i], Towers[j]) = (Towers[j], Towers[i]);
         }
-        SpawnTowersInCircle(center.position, radius * 1.7f);
+        SpawnTowersInCircleSpace(center.position, radius * 1.6f);
 
     }
 
@@ -73,6 +73,30 @@ public class TowerManager : MonoBehaviour
 
             // Last argument parents each tower under this manager
             Instantiate(Towers[i], centerPos + offset, Quaternion.identity, transform);
+        }
+    }
+
+    private void SpawnTowersInCircleSpace(Vector3 centerPos, float circleRadius)
+    {
+        bool done = false;
+        int count = Towers.Count;
+        if (count == 0) return;
+
+        float angleStep = 2f * Mathf.PI / count;
+
+        for (int i = 0; i < count; i++)
+        {
+            float angle = i * angleStep;
+            Vector3 offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * circleRadius;
+
+            // Last argument parents each tower under this manager
+            if (!done)
+            {
+                Instantiate(Towers[i], centerPos + offset, Quaternion.identity, transform);
+                done = true;
+            }
+            else done = false;
+            
         }
     }
 }

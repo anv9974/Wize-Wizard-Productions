@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
   HP: 20
-  DamageDealt: 0
+  DamageDealt: 5
   attackSpeed: 5
   towerType: 2
   range: 3
